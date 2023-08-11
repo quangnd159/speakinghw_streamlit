@@ -7,8 +7,8 @@ credentials:
     quangnguyen:
       email: null
       name: Nguyen Dang Quang
-      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
-    antrieu:
+      password: $2b$12$4CmQnkL7Db7RUIz3dFtzlORjWZDrmsPSRc.C4f2ZVwuGI3dMlHDhe
+    anle:
       email: null
       name: Le Trieu An
       password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2

@@ -211,26 +211,6 @@ if st.session_state["authentication_status"]:
     user_answer = ""
 
     if audio_bytes:
-        # generating unique file name using timestamp
-        timestamp = str(time.time())
-        unique_file_name = "audio_" + username + "_" + timestamp + ".wav"
-
-        file_name = unique_file_name # Use the unique filename directly
-
-        with open(file_name, mode="wb") as recorded_data:
-            recorded_data.write(audio_bytes)
-
-        supabase_destination = f"{user_class}/{lesson_number}/" + unique_file_name
-
-        supabase.storage.from_('st.lingocopilot').upload(supabase_destination, file_name)
-
-        audio_url = supabase.storage.from_('st.lingocopilot').get_public_url(supabase_destination)
-        
-        # Clear the local file after successful upload
-        os.remove(file_name)
-
-
-    if audio_bytes:
         file_name = "temp_audio_file.wav"
 
         with open(file_name, mode="wb") as recorded_data:
@@ -253,6 +233,24 @@ if st.session_state["authentication_status"]:
 
         if st.button("Submit"):
             with st.spinner('🦻 Transcribing and assessing pronunciation...'):
+                if audio_bytes:
+                    # generating unique file name using timestamp
+                    timestamp = str(time.time())
+                    unique_file_name = "audio_" + username + "_" + timestamp + ".wav"
+
+                    file_name = unique_file_name # Use the unique filename directly
+
+                    with open(file_name, mode="wb") as recorded_data:
+                        recorded_data.write(audio_bytes)
+
+                    supabase_destination = f"{user_class}/{lesson_number}/" + unique_file_name
+
+                    supabase.storage.from_('st.lingocopilot').upload(supabase_destination, file_name)
+
+                    audio_url = supabase.storage.from_('st.lingocopilot').get_public_url(supabase_destination)
+                    
+                    # Clear the local file after successful upload
+                    # os.remove(file_name)
                 wav_file = open("temp_audio_file.wav", "rb")
                 transcript = openai.Audio.transcribe("whisper-1", wav_file)
                 user_answer = transcript.text
