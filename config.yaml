@@ -1,0 +1,121 @@
+cookie:
+  expiry_days: 30
+  key: abcxyz
+  name: ehspeakinghomework
+credentials:
+  usernames:
+    quangnguyen:
+      email: null
+      name: Nguyen Dang Quang
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    antrieu:
+      email: null
+      name: Le Trieu An
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    dungnguyen:
+      email: null
+      name: Nguyen Ngoc Phuong Dung
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    duongnguyen:
+      email: null
+      name: Nguyen Hoang Thai Duong
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    dattran:
+      email: null
+      name: Tran Quoc Dat
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    giangluong:
+      email: null
+      name: Luong Vu Huong Giang
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    hatruong:
+      email: null
+      name: Truong Le Viet Ha
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    huytrinh:
+      email: null
+      name: Trinh Gia Huy
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    khangtruong:
+      email: null
+      name: Truong Long Khang
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    khanhta:
+      email: null
+      name: Ta Le Duy Khanh
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    linhdo:
+      email: null
+      name: Do Khanh Linh
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    mainguyen:
+      email: null
+      name: Nguyen Thanh Mai
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    minhtran:
+      email: null
+      name: Tran Thi Nhat Minh
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    ngandinh:
+      email: null
+      name: Dinh Nguyen Thao Ngan
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    ngocpham:
+      email: null
+      name: Pham Bao Ngoc
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    ngocdo:
+      email: null
+      name: Do Nhu Ngoc
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    nhannguyen:
+      email: null
+      name: Nguyen Ngoc Hien Nhan
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    phathoang:
+      email: null
+      name: Hoang Gia Thinh Phat
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    thaohoang:
+      email: null
+      name: Hoang Thanh Thao
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    thunguyen:
+      email: null
+      name: Nguyen Ngoc Minh Thu
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    tinhtruong:
+      email: null
+      name: Truong Duc Tinh
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    trangngo:
+      email: null
+      name: Ngo Thuy Trang
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    trangtran:
+      email: null
+      name: Tran Nguyen Ngoc Trang
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    trannguyen:
+      email: null
+      name: Nguyen Hoang Le Bao Tran
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    trucnguyen:
+      email: null
+      name: Nguyen Kim Truc
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    vyong:
+      email: null
+      name: Ong Minh Vy
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    ynguyen:
+      email: null
+      name: Nguyen Hong Nhu Y
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    yennguyen:
+      email: null
+      name: Nguyen Hai Yen
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+preauthorized:
+  emails:
+  - quangnd159@gmail.com
