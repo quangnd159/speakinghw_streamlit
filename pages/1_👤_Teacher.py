@@ -6,7 +6,7 @@ from supabase import create_client, Client
 import requests
 from io import BytesIO
 
-st.set_page_config(page_title="Profile", page_icon="👤")
+st.set_page_config(page_title="Teacher", page_icon="👤")
 
 # Initialize connection.
 # Uses st.cache_resource to only run once.
