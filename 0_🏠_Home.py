@@ -236,7 +236,8 @@ if st.session_state["authentication_status"]:
                 if audio_bytes:
                     # generating unique file name using timestamp
                     timestamp = str(time.time())
-                    unique_file_name = "audio_" + username + "_" + timestamp + ".wav"
+                    formatted_time = time.strftime("%H%M%S", time.localtime(float(timestamp)))
+                    unique_file_name = "audio_" + username + "_" + formatted_time + ".wav"
 
                     file_name = unique_file_name # Use the unique filename directly
 
