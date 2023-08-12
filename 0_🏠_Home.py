@@ -226,11 +226,6 @@ if st.session_state["authentication_status"]:
         # bucket_name = 'lingocopilot'
         # s3.upload_file(file_name, bucket_name, unique_file_name)
 
-        # supabase_destination = "test/" + unique_file_name
-        # supabase.storage.from_('st.lingocopilot').upload(supabase_destination, file_name)
-
-        # audio_url = supabase.storage.from_('st.lingocopilot').get_public_url(supabase_destination)
-
         if st.button("Submit"):
             with st.spinner('🦻 Transcribing and assessing pronunciation...'):
                 if audio_bytes:
