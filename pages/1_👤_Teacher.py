@@ -57,36 +57,40 @@ if st.session_state["authentication_status"]:
         user_classes = list({data['user_class'] for data in user_and_lesson_data})
         selected_user_class = st.selectbox('Select a class', user_classes)
 
-        names_for_class = list({data['name'] for data in user_and_lesson_data if data['user_class'] == selected_user_class})
-        selected_name = st.selectbox('Select a student', names_for_class)
+        if selected_user_class:
+            names_for_class = list({data['name'] for data in user_and_lesson_data if data['user_class'] == selected_user_class})
+            selected_name = st.selectbox('Select a student', names_for_class)
 
-        lessons_for_name = list({data['lesson_number'] for data in user_and_lesson_data if data['name'] == selected_name and data['user_class'] == selected_user_class})
-        selected_lesson = st.selectbox('Select a lesson', lessons_for_name)
+        if selected_user_class and selected_name:
+            lessons_for_name = list({data['lesson_number'] for data in user_and_lesson_data if data['name'] == selected_name and data['user_class'] == selected_user_class})
+            selected_lesson = st.selectbox('Select a lesson', lessons_for_name)
+
         st.write('\n\n\n\n')
         mispronunciations = []
         fluency_scores = []
         pron_scores = []
         for item in user_and_lesson_data:
-            st.write(f"**{item['question'].upper()}**")
-            st.write(f"*{item['user_answer']}*")
-            # Get a URL from your selected data
-            user_audio_url = item['user_audio']
+            if item['name'] == selected_name and item['user_class'] == selected_user_class and item['lesson_number']==selected_lesson:
+                st.write(f"**{item['question'].upper()}**")
+                st.write(f"*{item['user_answer']}*")
+                # Get a URL from your selected data
+                user_audio_url = item['user_audio']
 
-            # Get the file data from the URL
-            response = requests.get(user_audio_url)
+                # Get the file data from the URL
+                response = requests.get(user_audio_url)
 
-            # Wrap the BytesIO object with the audio file
-            audio_bytes = BytesIO(response.content)
+                # Wrap the BytesIO object with the audio file
+                audio_bytes = BytesIO(response.content)
 
-            st.audio(audio_bytes.read(), format="audio/wav")
-            st.write(f":violet[**AI-enhanced**] ✨ {item['improved_answer']}")
-            st.write(f"{item['idiomatic_exp']}")
-            if item['mispronunciation']:
-                mispronunciations.extend(item['mispronunciation'].split(', '))
-            fluency_scores.append(float(item['fluency_score']))
-            pron_scores.append(float(item['pron_score']))
+                st.audio(audio_bytes.read(), format="audio/wav")
+                st.write(f":violet[**AI-enhanced**] ✨ {item['improved_answer']}")
+                st.write(f"{item['idiomatic_exp']}")
+                if item['mispronunciation']:
+                    mispronunciations.extend(item['mispronunciation'].split(', '))
+                fluency_scores.append(float(item['fluency_score']))
+                pron_scores.append(float(item['pron_score']))
 
-            st.divider()
+                st.divider()
         
         st.write('#### Average pronunciation scores')
         col1, col2 = st.columns([1, 1])
