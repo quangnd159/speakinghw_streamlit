@@ -192,7 +192,7 @@ if st.session_state["authentication_status"]:
     # Display the selected question with st.write
     selected_question_index = question_number_labels.index(selected_question_number)
     question = selected_questions[selected_question_index]
-    st.success(question)
+    st.info(question)
 
     # AUDIO RECORDER
 
@@ -250,8 +250,8 @@ if st.session_state["authentication_status"]:
                 wav_file = open("temp_audio_file.wav", "rb")
                 transcript = openai.Audio.transcribe("whisper-1", wav_file)
                 user_answer = transcript.text
-                st.markdown(f"💬 *{user_answer}*")
-                st.write('\n\n')
+                # st.markdown(f"💬 *{user_answer}*")
+                # st.write('\n\n')
 
                 def get_chunk(audio_source, chunk_size=1024):
                     # yield WaveHeader16K16BitStereo
@@ -296,15 +296,14 @@ if st.session_state["authentication_status"]:
                     for word in resultJson["NBest"][0]["Words"]
                     if word["ErrorType"] == "Mispronunciation"
                 ]
-                col1, col2, col3, col4 = st.columns([1, 1, 1, 2])
-                col1.metric("Accuracy", accuracy_score)
-                col2.metric("Fluency", fluency_score)
-                col3.metric("Pronunciation", pron_score)
+                col1, col2, col3 = st.columns([1, 1, 2])
+                # col1.metric("Accuracy", accuracy_score)
+                col1.metric("Fluency", fluency_score)
+                col2.metric("Pronunciation", pron_score)
                 mispronunciation = ""
                 if mis_pron_words:
                     mispronunciation = ", ".join(mis_pron_words)
-                    col4.write(f"**MISPRONUNCIATION:** {mispronunciation}")
-            st.divider()
+                    col3.write(f"**MISPRONUNCIATION:** {mispronunciation}")
             with st.spinner('💬 Improving answer...'):
                 response = openai.ChatCompletion.create(
                     model='gpt-4',
@@ -315,7 +314,7 @@ if st.session_state["authentication_status"]:
                 )
             improved_answer = response.choices[0].message.content.strip()
             st.markdown("### Improved answer")
-            st.success(improved_answer)
+            st.success(f"✨ {improved_answer}")
             with st.spinner('🔈 Generating audio and extracting expression...'):
                 improved_answer_audio = text_to_speech(
                     improved_answer, 'en-US-AriaNeural')
@@ -332,7 +331,7 @@ if st.session_state["authentication_status"]:
                 )
             idiomatic_exp = response.choices[0].message.content.strip()
             st.audio('improved_answer_audio.wav')
-            st.markdown("### Collocations")
+            st.markdown("### Collocation")
             st.markdown(idiomatic_exp)
             # with st.spinner('✍️ Generating detailed feedback...'):
             #     response = openai.ChatCompletion.create(
