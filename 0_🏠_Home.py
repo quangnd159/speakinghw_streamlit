@@ -351,7 +351,7 @@ if st.session_state["authentication_status"]:
             # st.markdown("### Feedback")
             # st.success(detailed_feedback)
             supabase.table("users").upsert({"username": username}).execute()
-            supabase.table("eh_speaking_hw").insert({"username": username, "question": question, "user_answer": user_answer, "improved_answer": improved_answer,
+            supabase.table("eh_speaking_hw").insert({"username": username, "name": name, "question": question, "user_answer": user_answer, "improved_answer": improved_answer,
                                                      "idiomatic_exp": idiomatic_exp, "accuracy_score": accuracy_score, "fluency_score": fluency_score, "pron_score": pron_score, "mispronunciation": mispronunciation,
                                                      "user_audio": audio_url,
                                                      "user_class": user_class,

@@ -53,13 +53,13 @@ if st.session_state["authentication_status"]:
         user_and_lesson_data = rows.data
 
         user_classes = list({data['user_class'] for data in user_and_lesson_data})
-        selected_user_class = st.selectbox('Select a user class', user_classes)
+        selected_user_class = st.selectbox('Select a class', user_classes)
 
-        usernames_for_class = list({data['username'] for data in user_and_lesson_data if data['user_class'] == selected_user_class})
-        selected_username = st.selectbox('Select a username', usernames_for_class)
+        names_for_class = list({data['name'] for data in user_and_lesson_data if data['user_class'] == selected_user_class})
+        selected_name = st.selectbox('Select a student', names_for_class)
 
-        lessons_for_username = list({data['lesson_number'] for data in user_and_lesson_data if data['username'] == selected_username and data['user_class'] == selected_user_class})
-        selected_lesson = st.selectbox('Select a lesson', lessons_for_username)
+        lessons_for_name = list({data['lesson_number'] for data in user_and_lesson_data if data['name'] == selected_name and data['user_class'] == selected_user_class})
+        selected_lesson = st.selectbox('Select a lesson', lessons_for_name)
         st.write('\n\n\n\n')
         mispronunciations = []
         fluency_scores = []
@@ -77,7 +77,7 @@ if st.session_state["authentication_status"]:
             audio_bytes = BytesIO(response.content)
 
             st.audio(audio_bytes.read(), format="audio/wav")
-            st.write(f"✨ {item['improved_answer']}")
+            st.write(f":violet[**AI-enhanced**] ✨ {item['improved_answer']}")
             st.write(f"{item['idiomatic_exp']}")
             if item['mispronunciation']:
                 mispronunciations.extend(item['mispronunciation'].split(', '))
