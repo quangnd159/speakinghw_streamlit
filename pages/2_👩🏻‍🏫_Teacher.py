@@ -8,7 +8,7 @@ from io import BytesIO
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
-st.set_page_config(page_title="Teacher", page_icon="👤")
+st.set_page_config(page_title="Teacher", page_icon="👩🏻‍🏫")
 
 # Initialize connection.
 # Uses st.cache_resource to only run once.
@@ -129,7 +129,7 @@ if st.session_state["authentication_status"]:
         st.write('#### Potential mispronunciations')
         st.write(", ".join(mispronunciations))
     else:
-        st.warning("You need to be a teacher to see this page.")
+        st.warning("Only teachers can access this page.")
 
 elif st.session_state["authentication_status"] is False:
     st.error('Username/password is incorrect')
