@@ -248,7 +248,7 @@ if st.session_state["authentication_status"]:
                     # Clear the local file after successful upload
                     # os.remove(file_name)
                 with open("temp_audio_file.wav", "rb") as wav_file:
-                    transcript = openai.Audio.transcribe("whisper-1", wav_file)
+                    transcript = openai.Audio.transcribe("whisper-1", wav_file, prompt="Transcribe this into English.")
                 user_answer = transcript.text
                 # st.markdown(f"💬 *{user_answer}*")
                 # st.write('\n\n')
