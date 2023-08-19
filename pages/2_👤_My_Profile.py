@@ -2,21 +2,31 @@ import streamlit as st
 import streamlit_authenticator as stauth
 import yaml
 from yaml.loader import SafeLoader
-from supabase import create_client, Client
+# from supabase import create_client, Client
 import requests
 from io import BytesIO
 import matplotlib.pyplot as plt
 from collections import defaultdict
 
+from st_supabase_connection import SupabaseConnection
+
 st.set_page_config(page_title="Profile", page_icon="👤")
 
-@st.cache_resource
-def init_connection():
-    url = st.secrets["supabase_url"]
-    key = st.secrets["supabase_key"]
-    return create_client(url, key)
+# @st.cache_resource
+# def init_connection():
+#     url = st.secrets["supabase_url"]
+#     key = st.secrets["supabase_key"]
+#     return create_client(url, key)
 
-supabase = init_connection()
+# supabase = init_connection()
+
+st_supabase_client = st.experimental_connection(
+    name="supabase_connection",
+    type=SupabaseConnection,
+    ttl=None,
+    url=st.secrets["supabase_url"],
+    key=st.secrets["supabase_key"],
+)
 
 with open('config.yaml', encoding='utf-8') as file:
     config = yaml.load(file, Loader=SafeLoader)
@@ -43,11 +53,7 @@ if st.session_state["authentication_status"]:
     st.write(f'## {name}\'s Profile')
     st.write('### Your work')
 
-    @st.cache_data(ttl=600)
-    def run_query():
-        return supabase.table("eh_speaking_hw").select("*").execute()
-
-    rows = run_query()
+    rows = st_supabase_client.query("*", table="eh_speaking_hw", ttl=600).execute()
     user_and_lesson_data = [data for data in rows.data if data['username'] == username]
 
     lessons_for_name = list({data['lesson_number'] for data in user_and_lesson_data})

@@ -1,19 +1,17 @@
 import streamlit as st
 import openai
-import random
 import requests
 import base64
 import json
 from audio_recorder_streamlit import audio_recorder
 # import boto3
 import time
-import os
 
 import streamlit_authenticator as stauth
 
-# from st_supabase_connection import SupabaseConnection
+from st_supabase_connection import SupabaseConnection
 
-from supabase import create_client, Client
+# from supabase import create_client, Client
 
 import yaml
 from yaml.loader import SafeLoader
@@ -24,23 +22,22 @@ st.set_page_config(page_title="EH Speaking Homework", page_icon="🐧")
 # Initialize connection.
 # Uses st.cache_resource to only run once.
 
+# @st.cache_resource
+# def init_connection():
+#     url = st.secrets["supabase_url"]
+#     key = st.secrets["supabase_key"]
+#     return create_client(url, key)
 
-@st.cache_resource
-def init_connection():
-    url = st.secrets["supabase_url"]
-    key = st.secrets["supabase_key"]
-    return create_client(url, key)
 
+# supabase = init_connection()
 
-supabase = init_connection()
-
-# st_supabase_client = st.experimental_connection(
-#     name="supabase_connection",
-#     type=SupabaseConnection,
-#     ttl=None,
-#     url=st.secrets["supabase_url"],
-#     key=st.secrets["supabase_key"],
-# )
+st_supabase_client = st.experimental_connection(
+    name="supabase_connection",
+    type=SupabaseConnection,
+    ttl=None,
+    url=st.secrets["supabase_url"],
+    key=st.secrets["supabase_key"],
+)
 
 # CONNECT TO AWS
 
@@ -241,9 +238,9 @@ if st.session_state["authentication_status"]:
 
                     supabase_destination = f"{user_class}/{lesson_number}/" + unique_file_name
 
-                    supabase.storage.from_('st.lingocopilot').upload(supabase_destination, file_name)
+                    st_supabase_client.upload("st.lingocopilot", source="hosted", file=file_name, destination_path=supabase_destination)
 
-                    audio_url = supabase.storage.from_('st.lingocopilot').get_public_url(supabase_destination)
+                    audio_url = st_supabase_client.get_public_url("st.lingocopilot", filepath=supabase_destination)
                     
                     # Clear the local file after successful upload
                     # os.remove(file_name)
@@ -306,7 +303,7 @@ if st.session_state["authentication_status"]:
                     col3.write(f"**MISPRONUNCIATION:** {mispronunciation}")
             with st.spinner('💬 Improving answer...'):
                 response = openai.ChatCompletion.create(
-                    model='gpt-4',
+                    model='gpt-3.5-turbo',
                     messages=[
                         {"role": "system", "content": """You are a helpful assistant. You use spoken English in an everyday conversational tone. You use vocabulary should be that of a high school student. Your must not use written English such as "furthermore", "therefore", "additionally" "overall", and "in conclusion"."""},
                         {"role": "user", "content": f"""Improve the following IELTS Speaking answer by a candidate with simple, natural English. Do not add new ideas. Just give me the improved answer. No commentary. Here is the question: {question}. And here's the candidate's answer: {user_answer}"""}
@@ -344,8 +341,8 @@ if st.session_state["authentication_status"]:
             # detailed_feedback = response.choices[0].message.content.strip()
             # st.markdown("### Feedback")
             # st.success(detailed_feedback)
-            supabase.table("users").upsert({"username": username}).execute()
-            supabase.table("eh_speaking_hw").insert({"username": username, "name": name, "question": question, "user_answer": user_answer, "improved_answer": improved_answer,
+            st_supabase_client.table("users").upsert({"username": username}).execute()
+            st_supabase_client.table("eh_speaking_hw").insert({"username": username, "name": name, "question": question, "user_answer": user_answer, "improved_answer": improved_answer,
                                                      "idiomatic_exp": idiomatic_exp, "accuracy_score": accuracy_score, "fluency_score": fluency_score, "pron_score": pron_score, "mispronunciation": mispronunciation,
                                                      "user_audio": audio_url,
                                                      "user_class": user_class,
