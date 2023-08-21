@@ -110,7 +110,7 @@ if st.session_state["authentication_status"]:
 
         return response.text
 
-    def text_to_speech(text, voice_name='en-US-AriaNeural'):
+    def text_to_speech(text, voice_name='en-GB-RyanNeural'):
         access_token = get_azure_access_token()
 
         if not access_token:
@@ -128,7 +128,7 @@ if st.session_state["authentication_status"]:
                 data=f"""
                     <speak version='1.0' xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang='en-US'>
                     <voice name='{voice_name}'>
-                    <mstts:express-as role="YoungAdultFemale" style="chat">
+                    <mstts:express-as role="YoungAdultFemale" style="cheerful">
                         {text}
                     </mstts:express-as>
                     </voice>
@@ -322,7 +322,7 @@ if st.session_state["authentication_status"]:
             st.success(f"✨ {improved_answer}")
             with st.spinner('🔈 Generating audio and extracting expression...'):
                 improved_answer_audio = text_to_speech(
-                    improved_answer, 'en-US-AriaNeural')
+                    improved_answer, 'en-GB-RyanNeural')
                 with open('improved_answer_audio.wav', 'wb') as f:
                     f.write(improved_answer_audio)
                 response = openai.ChatCompletion.create(
