@@ -8,6 +8,74 @@ credentials:
       email: null
       name: Nguyen Dang Quang
       password: $2b$12$4CmQnkL7Db7RUIz3dFtzlORjWZDrmsPSRc.C4f2ZVwuGI3dMlHDhe
+    msmai:
+      email: mai.nguyen.118@gmail.com
+      name: Nguyen Thi Xuan Mai
+      password: $2b$12$YTlmwERGtDkVE1ZR10gAFuO1.hq8o20Wc7mJ2xOt8zP0Xzvcx/9tS
+    anhpham:
+      email: null
+      name: Pham Dao Mai Anh
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    anhnguyen:
+      email: null
+      name: Nguyen Ho Phuong Anh
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    baonguyen:
+      email: null
+      name: Nguyen Kim Bao
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    handao:
+      email: null
+      name: Dao Hong Han
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    linhdang:
+      email: null
+      name: Dang Phuong Linh
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    linhnguyen:
+      email: null
+      name: Nguyen Hoang Phuong Linh
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    longdang:
+      email: null
+      name: Dang Hoang Long
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    nhitran:
+      email: null
+      name: Tran Thi Yen Nhi
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    nhungnguyen:
+      email: null
+      name: Nguyen Hong Nhung
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    nhunguyen:
+      email: null
+      name: Nguyen Thao Nhu
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    quynhphan:
+      email: null
+      name: Phan Nhu Quynh
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    thole:
+      email: null
+      name: Le Ngoc Tho
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    tramtruong:
+      email: null
+      name: Truong Thi Bich Tram
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    trietle:
+      email: null
+      name: Le Minh Triet
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    vyhuynh:
+      email: null
+      name: Huynh Thanh Vy
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    xuannguyen:
+      email: null
+      name: Nguyen Hoang Nhu Xuan
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
     anle:
       email: null
       name: Le Trieu An

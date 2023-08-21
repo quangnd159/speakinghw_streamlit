@@ -146,11 +146,16 @@ if st.session_state["authentication_status"]:
 
     user_level = st.radio(
     "Select your level",
-    ('Pre-Intermediate',))
+    ('Advanced', 'Pre-Intermediate',))
 
-    user_class = st.radio(
-        "Select your class",
-        ('PI.074',))
+    if user_level == 'Pre-Intermediate':
+        user_class = st.radio(
+            "Select your class",
+            ('PI.074',))
+    elif user_level == 'Advanced':
+        user_class = st.radio(
+            "Select your class",
+            ('A.058',))
 
     lesson_number = st.selectbox(
         'Select a lesson',
@@ -158,6 +163,9 @@ if st.session_state["authentication_status"]:
 
     # Define a dictionary to store the questions for each level and lesson
     question_bank = {
+        'Advanced': {
+            'Lesson 1': ['Tell me about the kind of accommodation you live in?', 'How long have you lived there?', 'What do you like about living there?', 'What sort of accommodation would you most like to live in?']
+        },
         'Pre-Intermediate': {
             'Lesson 1': ['What work would you like to do after you finish your studies?', 'What do you usually do in your room?', 'What place (city) would you like to live in in the future?'],
             'Lesson 2': ['Do you like to plan what you will do each day?', 'What\'s usually your busiest time of the day?', 'What kind of weather do you dislike?'],

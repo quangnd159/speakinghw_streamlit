@@ -34,7 +34,7 @@ if "authentication_status" not in st.session_state:
 
 if st.session_state["authentication_status"]:
     authenticator.logout('Logout', 'sidebar', key='unique_key')
-    if username == 'quangnguyen':
+    if username == 'quangnguyen' or username == 'msmai':
         name = st.session_state['name']
         username = st.session_state['username']
 
