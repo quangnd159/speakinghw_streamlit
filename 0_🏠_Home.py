@@ -91,7 +91,7 @@ if st.session_state["authentication_status"]:
         6. Press **Submit** to to receive pronunciation score and AI feedback.
         """
     )
-    st.sidebar.info("You must answer all questions listed in a lesson.")
+    st.sidebar.info("You must answer all questions in a lesson unless instructed otherwise.")
 
     # AZURE TEXT TO SPEECH (https://github.com/hipnologo/openai_azure_text2speech)
 
