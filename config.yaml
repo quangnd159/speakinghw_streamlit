@@ -11,7 +11,7 @@ credentials:
     msmai:
       email: mai.nguyen.118@gmail.com
       name: Nguyen Thi Xuan Mai
-      password: $2b$12$YTlmwERGtDkVE1ZR10gAFuO1.hq8o20Wc7mJ2xOt8zP0Xzvcx/9tS
+      password: $2b$12$j/Dz8aDJJU0z6Du2fSpd1uzFpK18sFAzX4CyP6rELYbMSR3XogPaS
     anhpham:
       email: null
       name: Pham Dao Mai Anh
