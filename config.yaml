@@ -40,6 +40,10 @@ credentials:
       email: null
       name: Dang Hoang Long
       password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
+    mynguyen:
+      email: null
+      name: Nguyen Ha My
+      password: $2b$12$1sOxcL70rWFT1dnozPu6aOJeZ5lPaAzHULmVjC5ZsWYFMTV4GQQY2
     nhitran:
       email: null
       name: Tran Thi Yen Nhi
