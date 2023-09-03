@@ -74,7 +74,7 @@ if st.session_state["authentication_status"]:
     authenticator.logout('Logout', 'sidebar', key='unique_key')
 
     username = st.session_state["username"]
-    
+
     openai.api_key = st.secrets["OPENAI_API_KEY"]
     azure_key = st.secrets["AZURE_SUBSCRIPTION_KEY"]
     region = st.secrets["SPEECH_REGION"]
@@ -91,7 +91,8 @@ if st.session_state["authentication_status"]:
         6. Press **Submit** to to receive pronunciation score and AI feedback.
         """
     )
-    st.sidebar.info("You must answer all questions in a lesson unless instructed otherwise.")
+    st.sidebar.info(
+        "You must answer all questions in a lesson unless instructed otherwise.")
 
     # AZURE TEXT TO SPEECH (https://github.com/hipnologo/openai_azure_text2speech)
 
@@ -145,8 +146,8 @@ if st.session_state["authentication_status"]:
     st.write(f"#### Welcome, {name}! 🥳")
 
     user_level = st.radio(
-    "Select your level",
-    ('Advanced', 'Pre-Intermediate',))
+        "Select your level",
+        ('Advanced', 'Pre-Intermediate',))
 
     if user_level == 'Pre-Intermediate':
         user_class = st.radio(
@@ -164,7 +165,8 @@ if st.session_state["authentication_status"]:
     # Define a dictionary to store the questions for each level and lesson
     question_bank = {
         'Advanced': {
-            'Lesson 1': ['Tell me about the kind of accommodation you live in?', 'How long have you lived there?', 'What do you like about living there?', 'What sort of accommodation would you most like to live in?']
+            'Lesson 1': ['Tell me about the kind of accommodation you live in?', 'How long have you lived there?', 'What do you like about living there?', 'What sort of accommodation would you most like to live in?'],
+            'Lesson 2': ['Do you like science?', 'When did you start to learn about science?', 'Which science subject is interesting to you?', 'What kinds of interesting things have you done with science?'],
         },
         'Pre-Intermediate': {
             'Lesson 1': ['What work would you like to do after you finish your studies?', 'What do you usually do in your room?', 'What place (city) would you like to live in in the future?'],
@@ -190,12 +192,15 @@ if st.session_state["authentication_status"]:
     if len(selected_questions) == 1:
         question_number_labels = ['Question']
     else:
-        question_number_labels = ['Question {}'.format(i+1) for i in range(len(selected_questions))]
+        question_number_labels = ['Question {}'.format(
+            i+1) for i in range(len(selected_questions))]
 
-    selected_question_number = st.selectbox('Select a question', question_number_labels)
+    selected_question_number = st.selectbox(
+        'Select a question', question_number_labels)
 
     # Display the selected question with st.write
-    selected_question_index = question_number_labels.index(selected_question_number)
+    selected_question_index = question_number_labels.index(
+        selected_question_number)
     question = selected_questions[selected_question_index]
     st.info(question)
 
@@ -236,24 +241,29 @@ if st.session_state["authentication_status"]:
                 if audio_bytes:
                     # generating unique file name using timestamp
                     timestamp = str(time.time())
-                    formatted_time = time.strftime("%H%M%S", time.localtime(float(timestamp)))
+                    formatted_time = time.strftime(
+                        "%H%M%S", time.localtime(float(timestamp)))
                     unique_file_name = "audio_" + username + "_" + formatted_time + ".wav"
 
-                    file_name = unique_file_name # Use the unique filename directly
+                    file_name = unique_file_name  # Use the unique filename directly
 
                     with open(file_name, mode="wb") as recorded_data:
                         recorded_data.write(audio_bytes)
 
-                    supabase_destination = f"{user_class}/{lesson_number}/" + unique_file_name
+                    supabase_destination = f"{user_class}/{lesson_number}/" + \
+                        unique_file_name
 
-                    st_supabase_client.upload("st.lingocopilot", source="hosted", file=file_name, destination_path=supabase_destination)
+                    st_supabase_client.upload(
+                        "st.lingocopilot", source="hosted", file=file_name, destination_path=supabase_destination)
 
-                    audio_url = st_supabase_client.get_public_url("st.lingocopilot", filepath=supabase_destination)
-                    
+                    audio_url = st_supabase_client.get_public_url(
+                        "st.lingocopilot", filepath=supabase_destination)
+
                     # Clear the local file after successful upload
                     # os.remove(file_name)
                 with open("temp_audio_file.wav", "rb") as wav_file:
-                    transcript = openai.Audio.transcribe("whisper-1", wav_file, prompt="Transcribe this into English.")
+                    transcript = openai.Audio.transcribe(
+                        "whisper-1", wav_file, prompt="Transcribe this into English.")
                 user_answer = transcript.text
                 # st.markdown(f"💬 *{user_answer}*")
                 # st.write('\n\n')
@@ -313,7 +323,7 @@ if st.session_state["authentication_status"]:
                 response = openai.ChatCompletion.create(
                     model='gpt-3.5-turbo',
                     messages=[
-                        {"role": "system", "content": """You are a helpful assistant. You use spoken English in an everyday conversational tone. You use vocabulary should be that of a high school student. Your must not use written English such as "furthermore", "therefore", "additionally" "overall", and "in conclusion"."""},
+                        {"role": "system", "content": """You are a native English speaker. You use spoken English in an everyday conversational tone. Your vocabulary is that of a high school student. Your must not use written English such as "furthermore", "therefore", "additionally" "overall", and "in conclusion"."""},
                         {"role": "user", "content": f"""Improve the following IELTS Speaking answer by a candidate with simple, natural English. Do not add new ideas. Just give me the improved answer. No commentary. Here is the question: {question}. And here's the candidate's answer: {user_answer}"""}
                     ]
                 )
@@ -349,12 +359,13 @@ if st.session_state["authentication_status"]:
             # detailed_feedback = response.choices[0].message.content.strip()
             # st.markdown("### Feedback")
             # st.success(detailed_feedback)
-            st_supabase_client.table("users").upsert({"username": username}).execute()
+            st_supabase_client.table("users").upsert(
+                {"username": username}).execute()
             st_supabase_client.table("eh_speaking_hw").insert({"username": username, "name": name, "question": question, "user_answer": user_answer, "improved_answer": improved_answer,
-                                                     "idiomatic_exp": idiomatic_exp, "accuracy_score": accuracy_score, "fluency_score": fluency_score, "pron_score": pron_score, "mispronunciation": mispronunciation,
-                                                     "user_audio": audio_url,
-                                                     "user_class": user_class,
-                                                     "lesson_number": lesson_number}).execute()
+                                                               "idiomatic_exp": idiomatic_exp, "accuracy_score": accuracy_score, "fluency_score": fluency_score, "pron_score": pron_score, "mispronunciation": mispronunciation,
+                                                               "user_audio": audio_url,
+                                                               "user_class": user_class,
+                                                               "lesson_number": lesson_number}).execute()
 
 elif st.session_state["authentication_status"] is False:
     st.error('Username/password is incorrect')
