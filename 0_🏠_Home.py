@@ -167,6 +167,8 @@ if st.session_state["authentication_status"]:
         'Advanced': {
             'Lesson 1': ['Tell me about the kind of accommodation you live in?', 'How long have you lived there?', 'What do you like about living there?', 'What sort of accommodation would you most like to live in?'],
             'Lesson 2': ['Do you like science?', 'When did you start to learn about science?', 'Which science subject is interesting to you?', 'What kinds of interesting things have you done with science?'],
+            'Lesson 3': ['What study tools do you use?', 'What parts of your hometown do you recommend a visitor go and see?', 'What kind of decorations does your room have?', 'What kind of work are you planning to do in the future?'],
+            'Lesson 4': ['Describe a popular music group (or a singer) in your country.\n\nYou should say \n\nwhat it is\n\nwho the lead singer is\n\nwhen their debut was\n\nand explain why they are famous in your country.',],
         },
         'Pre-Intermediate': {
             'Lesson 1': ['What work would you like to do after you finish your studies?', 'What do you usually do in your room?', 'What place (city) would you like to live in in the future?'],
