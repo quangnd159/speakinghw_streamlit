@@ -184,6 +184,14 @@ if st.session_state["authentication_status"]:
             'Lesson 10': ['Some people say young people spend too much time on shopping. What do you think?', 'Do you think the way we judge success has changed, compared to the way it was judged in the past?',],
             'Lesson 11': ['Do you think it\'s a good thing for people to live in high-rise apartment buildings?',],
             'Lesson 12': ['What types of news are you most interested in?', 'Do you think the way we get our news might change in the future?',],
+            'Midterm 1': ['Describe a person who you would like to be similar to in the future.\n\nYou should say:\n\nwho this person is\n\nhow you know this person\n\nwhat impresses you about this person\n\nand explain why you would like to be similar to this person.',],
+            'Midterm 2': ['Describe a leisure activity you enjoy doing with your family.\n\nYou should say:\n\nwhat activity\n\nwhen you do it\n\nwhere you do it\n\nand explain why you enjoy it.',],
+            'Midterm 3': ['Describe a memorable holiday you had.\n\nYou should say:\n\nwhen and where you went\n\nwho you went with\n\nwhat you did there\n\nand explain why it was memorable.',],
+            'Midterm 4': ['Describe a useful practical skill that you learned (such as driving a car, speaking a foreign language, cooking etc).\n\nYou should say:\n\nwhy you learned this skill\n\nhow (and when) you learned it\n\nhow difficult it was to learn\n\nand explain how this skill is useful to you.',],
+            'Midterm 5': ['Describe your favourite weather.\n\nYou should say:\n\nwhat kind of weather it is \n\nwhen this weather usually occurs\n\nwhat you usually do during this weather \n\nand explain why you like this type of weather.',],
+            'Midterm 6': ['Describe your favourite part of your hometown, (or where you are living now).\n\nYou should say:\n\nwhere it is\n\nhow often you go there\n\nwhat people do there\n\nand explain why you like it so much.',],
+            'Midterm 7': ['Describe a place where you would like to have (or, build) a home.\n\nYou should say:\n\nwhere it is\n\nwhat the place looks like\n\nwhat work you would do if you lived there\n\nand explain why you would like to live there.',],
+            'Midterm 8': ['Describe a recent event that made you feel happy.\n\nYou should say:\n\nwhat the event was\n\nwhere it happened.\n\nwho was with you\n\nand explain why this event was so enjoyable.'],
         },
         # Add other levels as needed
     }
