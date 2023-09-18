@@ -160,7 +160,7 @@ if st.session_state["authentication_status"]:
 
     lesson_number = st.selectbox(
         'Select a lesson',
-        ('Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4', 'Lesson 5', 'Lesson 6', 'Lesson 7', 'Lesson 8', 'Lesson 9', 'Lesson 10', 'Lesson 11', 'Lesson 12'))
+        ('Lesson 1', 'Lesson 2', 'Lesson 3', 'Lesson 4', 'Lesson 5', 'Lesson 6', 'Lesson 7', 'Lesson 8', 'Lesson 9', 'Lesson 10', 'Lesson 11', 'Lesson 12', 'Midterm 1', 'Midterm 2', 'Midterm 3', 'Midterm 4', 'Midterm 5', 'Midterm 6', 'Midterm 7', 'Midterm 8'))
 
     # Define a dictionary to store the questions for each level and lesson
     question_bank = {
