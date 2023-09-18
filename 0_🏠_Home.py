@@ -219,7 +219,7 @@ if st.session_state["authentication_status"]:
 
     audio_bytes = audio_recorder(
         energy_threshold=(-1.0, 1.0),
-        pause_threshold=100.0,
+        pause_threshold=120.0,
         sample_rate=32_000,
         text="",
         recording_color="#009900",
